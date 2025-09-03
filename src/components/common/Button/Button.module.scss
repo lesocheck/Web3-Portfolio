@@ -1,0 +1,219 @@
+// todo styles should be in tildwind and theme
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-500);
+  }
+  
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  // Variants
+  &--primary {
+    background-color: var(--primary-600);
+    color: white;
+    border-color: var(--primary-600);
+    
+    &:hover:not(.button--disabled) {
+      background-color: var(--primary-700);
+      border-color: var(--primary-700);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(.button--disabled) {
+      background-color: var(--primary-800);
+      border-color: var(--primary-800);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--gray-600);
+    color: white;
+    border-color: var(--gray-600);
+    
+    &:hover:not(.button--disabled) {
+      background-color: var(--gray-700);
+      border-color: var(--gray-700);
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(.button--disabled) {
+      background-color: var(--gray-800);
+      border-color: var(--gray-800);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: var(--primary-600);
+    border-color: var(--primary-600);
+    
+    &:hover:not(.button--disabled) {
+      background-color: var(--primary-50);
+      color: var(--primary-700);
+      border-color: var(--primary-700);
+    }
+    
+    &:active:not(.button--disabled) {
+      background-color: var(--primary-100);
+      border-color: var(--primary-800);
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: var(--gray-700);
+    border-color: transparent;
+    
+    &:hover:not(.button--disabled) {
+      background-color: var(--gray-100);
+      color: var(--gray-900);
+    }
+    
+    &:active:not(.button--disabled) {
+      background-color: var(--gray-200);
+    }
+  }
+
+  &--danger {
+    background-color: var(--error-500);
+    color: white;
+    border-color: var(--error-500);
+    
+    &:hover:not(.button--disabled) {
+      background-color: #dc2626;
+      border-color: #dc2626;
+      box-shadow: var(--shadow-md);
+    }
+    
+    &:active:not(.button--disabled) {
+      background-color: #b91c1c;
+      border-color: #b91c1c;
+    }
+  }
+
+  // Sizes
+  &--sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &--md {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &--lg {
+    padding: 0.625rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  // States
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--loading {
+    pointer-events: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// Content and icon positioning
+.content {
+  display: inline-flex;
+  align-items: center;
+  
+  &Hidden {
+    opacity: 0;
+  }
+}
+
+.iconLeft {
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.iconRight {
+  margin-left: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+// Loading spinner
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinnerIcon {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Button group styles (when used with other buttons)
+.button + .button {
+  margin-left: 0.5rem;
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .button {
+    &--sm {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+    }
+    
+    &--md {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    
+    &--lg {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+}

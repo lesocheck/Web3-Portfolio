@@ -1,0 +1,254 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.statusCard {
+  background: linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%);
+  border: 1px solid var(--primary-200);
+}
+
+.statusHeader {
+  display: flex;
+  align-items: center;
+  justify-content: between;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+.statusInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.statusIcon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--primary-600);
+  flex-shrink: 0;
+}
+
+.statusTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.statusSubtitle {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.statusActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: stretch;
+  }
+}
+
+.connectedActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: var(--error-50, #fef2f2);
+  border: 1px solid var(--error-200, #fecaca);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--error-700, #b91c1c);
+}
+
+.errorIcon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.balanceCard,
+.addressCard,
+.networkCard {
+  background: white;
+  border: 1px solid var(--gray-200);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: var(--primary-300);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cardTitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.balanceAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+
+  @media (max-width: 640px) {
+    font-size: 1.75rem;
+  }
+}
+
+.addressActions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.addressValue {
+  font-family: 'JetBrains Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  word-break: break-all;
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
+  }
+}
+
+.networkName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+
+  @media (max-width: 640px) {
+    font-size: 1rem;
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 0.75rem;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.dashboard {
+  .statusCard,
+  .balanceCard,
+  .addressCard,
+  .networkCard {
+    &:has(.loading) {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  }
+}
+
+.balanceAmount {
+  transition: all 0.3s ease-in-out;
+
+  &.updating {
+    transform: scale(1.05);
+    color: var(--primary-600);
+  }
+}
+
+.networkCard {
+  &.mainnet {
+    border-left: 4px solid var(--success-500);
+  }
+
+  &.testnet {
+    border-left: 4px solid var(--warning-500);
+  }
+
+  &.unknown {
+    border-left: 4px solid var(--gray-400);
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard {
+    gap: 1.25rem;
+  }
+
+  .statusHeader {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard {
+    gap: 1rem;
+  }
+
+  .infoGrid {
+    gap: 0.75rem;
+  }
+
+  .cardHeader {
+    margin-bottom: 0.5rem;
+  }
+
+  .statusInfo {
+    gap: 0.5rem;
+  }
+
+  .statusIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .statusTitle {
+    font-size: 1.125rem;
+  }
+}

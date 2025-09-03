@@ -1,0 +1,244 @@
+.header {
+  background-color: white;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.nav {
+  width: 100%;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+
+  @media (min-width: 640px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-600);
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--gray-700);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease-in-out;
+  position: relative;
+
+  &:hover {
+    color: var(--primary-600);
+    background-color: var(--primary-50);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-600);
+    transition: width 0.2s ease-in-out;
+  }
+}
+
+.navLinkActive {
+  color: var(--primary-600);
+  background-color: var(--primary-50);
+
+  &::after {
+    width: 80%;
+  }
+}
+
+.socialLinks {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gray-200);
+
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--gray-500);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-600);
+    background-color: var(--primary-50);
+    transform: translateY(-1px);
+  }
+}
+
+.socialIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.mobileMenuButton {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileNav {
+  border-top: 1px solid var(--gray-200);
+  background-color: white;
+  box-shadow: var(--shadow-lg);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileNavContent {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobileNavLink {
+  text-decoration: none;
+  color: var(--gray-700);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease-in-out;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    color: var(--primary-600);
+    background-color: var(--primary-50);
+    border-left-color: var(--primary-600);
+  }
+}
+
+.mobileNavLinkActive {
+  color: var(--primary-600);
+  background-color: var(--primary-50);
+  border-left-color: var(--primary-600);
+}
+
+.mobileSocialLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.mobileSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--gray-500);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-300);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-600);
+    background-color: var(--primary-50);
+    border-color: var(--primary-300);
+    transform: scale(1.05);
+  }
+}
+
+.mobileSocialIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+// Responsive improvements
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .logoText {
+    font-size: 1.125rem;
+  }
+
+  .mobileNavContent {
+    padding: 0.75rem;
+  }
+
+  .mobileNavLink {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.9375rem;
+  }
+}
